@@ -1,43 +1,14 @@
-def vocales(palabra):
-  return palabra in "a"
-def vocale(palabra):
-  return palabra in "e"
-def vocali(palabra):
-  return palabra in "i"
-def vocalo(palabra):
-  return palabra in "o"
-def vocalu(palabra):
-  return palabra in "u"
+def contar_vocales(frase):
+    conteo_vocales = {'a': 0, 'e': 0, 'i': 0, 'o': 0, 'u': 0}
+    frase = frase.lower()
+    for char in frase:
+        if char in conteo_vocales:
+            conteo_vocales[char] += 1
+    return conteo_vocales
 
-palabra = input("Ingresa una frase: ");
-palabra_modificada = palabra.lower()
-cant_vocales = 0
-cant_vocalese = 0
-cant_vocalesi = 0
-cant_vocaleso = 0
-cant_vocalesu = 0
-for indice in palabra_modificada:
-  if indice.isalpha() and   vocales(indice):
-    cant_vocales +=1
-print(f"En la frase {palabra} existe { cant_vocales} vocales a")
+frase = input("Introduce una frase: ")
+conteo = contar_vocales(frase)
 
-for indice in palabra_modificada:
-  if indice.isalpha() and   vocale(indice):
-    cant_vocalese +=1
-print(f"En la frase {palabra} existe { cant_vocalese} vocales e")
-
-for indice in palabra_modificada:
-  if indice.isalpha() and   vocali(indice):
-    cant_vocalesi +=1
-print(f"En la frase {palabra} existe { cant_vocalesi} vocales i")
-
-for indice in palabra_modificada:
-  if indice.isalpha() and   vocalo(indice):
-    cant_vocaleso +=1
-print(f"En la frase {palabra} existe { cant_vocaleso} vocales o")
-
-for indice in palabra_modificada:
-  if indice.isalpha() and   vocalu(indice):
-    cant_vocalesu +=1
-print(f"En la frase {palabra} existe { cant_vocalesu} vocales u")
-
+print("Conteo de vocales en la frase:")
+for vocal, conteo_vocal in conteo.items():
+    print(f"{vocal}: {conteo_vocal}")
